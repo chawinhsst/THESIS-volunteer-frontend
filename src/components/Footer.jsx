@@ -16,7 +16,7 @@ export default function Footer() {
         </div>
         <div className="mt-6 flex justify-center space-x-6">
             <SocialLink href="https://www.linkedin.com/in/chawin-hansasuta/">LinkedIn</SocialLink>
-            <SocialLink href="https://chawin.netlify.app/">Personal Site</SocialLink>
+            <SocialLink href="https://chawin.hansasuta.com/">Personal Site</SocialLink>
         </div>
         <p className="mt-6 text-center text-xs text-slate-500">
             &copy; {new Date().getFullYear()} All Rights Reserved.
