@@ -8,11 +8,9 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { t, i18n } = useTranslation();
 
-  // --- UPDATED FUNCTION ---
-  // We make the function async to wait for the language change before reloading
   const changeLanguage = async (lng) => {
-    await i18n.changeLanguage(lng); // 1. Wait for i18next to finish
-    window.location.reload();      // 2. Then, force a page reload
+    await i18n.changeLanguage(lng);
+    window.location.reload();
   };
 
   const getButtonClasses = (lang) => {
@@ -43,9 +41,8 @@ export default function Navbar() {
           <NavLink to="/" className={({ isActive }) => `text-slate-600 hover:text-sky-600 transition-colors ${isActive ? 'font-semibold text-sky-600' : ''}`}>{t('navbar.home')}</NavLink>
           <NavLink to="/about-the-study" className={({ isActive }) => `text-slate-600 hover:text-sky-600 transition-colors ${isActive ? 'font-semibold text-sky-600' : ''}`}>{t('navbar.about')}</NavLink>
           <NavLink to="/volunteer-information" className={({ isActive }) => `text-slate-600 hover:text-sky-600 transition-colors ${isActive ? 'font-semibold text-sky-600' : ''}`}>{t('navbar.volunteers')}</NavLink>
-          <Link to="/register" className="bg-sky-500 text-white px-5 py-2 rounded-full font-semibold hover:bg-sky-600 transition-transform hover:scale-105">
-            {t('navbar.register')}
-          </Link>
+          
+          {/* REMOVED REGISTER BUTTON */}
 
           {/* Language Switcher */}
           <div className="flex items-center space-x-2 border-l ml-4 pl-4">
@@ -75,10 +72,9 @@ export default function Navbar() {
               <NavLink to="/" className="text-slate-700 hover:text-sky-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.home')}</NavLink>
               <NavLink to="/about-the-study" className="text-slate-700 hover:text-sky-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.about')}</NavLink>
               <NavLink to="/volunteer-information" className="text-slate-700 hover:text-sky-600" onClick={() => setIsMenuOpen(false)}>{t('navbar.volunteers')}</NavLink>
-              <Link to="/register" className="bg-sky-500 text-white px-8 py-3 rounded-full font-semibold" onClick={() => setIsMenuOpen(false)}>
-                {t('navbar.register')}
-              </Link>
-              {/* Language Switcher for Mobile */}
+              
+              {/* REMOVED REGISTER LINK FOR MOBILE */}
+
               <div className="flex items-center space-x-4 pt-4 border-t mt-4 w-full justify-center">
                 <button onClick={() => changeLanguage('en')} className={getMobileButtonClasses('en')}>EN</button>
                 <button onClick={() => changeLanguage('th')} className={getMobileButtonClasses('th')}>TH</button>
